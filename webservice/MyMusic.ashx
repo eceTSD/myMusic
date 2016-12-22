@@ -21,6 +21,7 @@ public class MyMusic : IHttpHandler {
                 onesong.author = song.Artist[0].Name;
                 onesong.url = song.Mp3Url;
                 onesong.pic = song.Album.PictureUrl;
+                onesong.lrc = MusicApis.LyricInfo(song.Id.ToString()).Lyr;
                 songl.Add(onesong);
             }
 

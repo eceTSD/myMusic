@@ -16,6 +16,8 @@ public class onesongnew
 
     private string _pic;
 
+    private string _lrc;
+
     public string title
     {
         get
@@ -65,6 +67,19 @@ public class onesongnew
         set
         {
             _pic = value;
+        }
+    }
+
+    public string lrc
+    {
+        get
+        {
+            return _lrc;
+        }
+
+        set
+        {
+            _lrc = value;
         }
     }
 }

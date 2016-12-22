@@ -183,10 +183,28 @@ public static class MusicApis
     /// </summary>
     /// <param name="id">歌词id</param>
     /// <returns></returns>
-    public static string LyricInfo(string id)
+    public static Lyric LyricInfo(string id)
     {
         string url = WANGYI_LYRIC + "?os=pc&id=" + id + "&lv=-1&kv=-1&tv=-1";
-        return HttpServer.Http_GET(url);
+        try
+        {
+            string a = HttpServer.Http_GET(url);
+            dynamic request = JsonConvert.DeserializeObject(HttpServer.Http_GET(url));
+            if (request.code == 200)
+            {
+                dynamic lyr = JsonConvert.DeserializeObject(request.lrc.ToString());
+                Lyric lyric = new Lyric();
+                lyric.Lyr = lyr.lyric.ToString();
+                return lyric;
+            }
+        }
+        catch (Exception)
+        {
+
+            return new Lyric();
+        }
+        return new Lyric();
+        
     }
 
     /// <summary>
