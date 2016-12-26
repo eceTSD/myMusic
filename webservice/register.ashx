@@ -7,9 +7,7 @@ public class register : IHttpHandler {
 
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";
-        SqlHelper sqlhelp = new SqlHelper(System.Configuration.ConfigurationManager.ConnectionStrings["userbase"].ConnectionString);
-        sqlhelp.GetTables();
-        
+        MyDB.ExecuteSql("select * from UserInfo");
         context.Response.Write("Hello World");
     }
 

@@ -8,7 +8,7 @@ public class Test : IHttpHandler {
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";
         
-        context.Response.Write(MusicApis.LyricInfo("26508240"));
+        context.Response.Write(MusicApis.MVInfo("319076"));
     }
 
     public bool IsReusable {
