@@ -18,16 +18,31 @@ function search() {
             var ap4 = new APlayer({
                 element: document.getElementById('player4'),
                 narrow: false,
-                autoplay: false,
+                autoplay: true,
                 showlrc: 1,
-                mutex: false,
+                mutex: true,
                 theme: '#ad7a86',
                 mode: 'random',               
                 music: data
             });
+            songlist(data);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);
         }
     });
+}
+
+function songlist(list) {
+
+    
+    var goodsVue = new Vue({
+        el: '#songlist',
+        data: {
+            songList:list
+        },
+       
+    })
+   
+
 }

@@ -8,9 +8,10 @@
     <link href="../../css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="site-notice" ><em style="color:beige">马上就要元旦啦！！！！祝各位领导同事新年快乐，身体健康O(∩_∩)O~~</em></div>
     <header class="site-header jumbotron">
         <div class="site-nav">
-            <a>登陆</a> <span>/</span> <a>关于</a>
+            <a>登录</a> <span>/</span> <a>注册</a>
         </div><div class="container">
             <h1 style="color:cornsilk">我的音乐小站</h1><p style="color:cornsilk">做一个喜欢音乐的好人</p>
         </div>
@@ -21,11 +22,43 @@
             </div>
         </form>
     </header>
-        <h3>播放列表</h3>
-        <div id="player4" class="aplayer"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">abc</div>
+            <div class="col-md-7">
+                <h3>播放列表</h3>
+                <div id="songlist">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style='width:3%; text-align: left'>ID</th>
+                                <th style='width:10%; text-align: left'>歌名</th>
+                                <th style='width:10%; text-align: left'>专辑</th>
+                                <th style='width:5%; text-align: left'>作者</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="song in songList">
+                                <td>{{song.title}}</td>
+                                <td>{{song.title}}</td>
+                                <td>{{song.title}}</td>
+                                <td>{{song.author}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+               
+                <div id="player4" class="aplayer"></div>
+            </div>
+           <div class="col-md-3"></div>
+        </div>
+    </div>
+        
     
     <script src="../dist/APlayer.min.js"></script>
     <script src="../../js/jquery-3.1.1.js"></script>
+   
+    <script src="../../js/vue.js"></script>
     <script src="demo.js"></script>
 </body>
 </html>
