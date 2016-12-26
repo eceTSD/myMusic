@@ -8,7 +8,7 @@ public class Test : IHttpHandler {
 
     public void ProcessRequest (HttpContext context) {
 
-        string id = context.Request.Params["id"] == null ? "34567265" : context.Request.Params["id"].ToString();
+        string id = context.Request.Params["id"] == null ? "" : context.Request.Params["id"].ToString();
         context.Response.ContentType = "text/json";
         Album album = MusicApis.AlbumInfo(id,"0,","20");
         List<Song> songlist = album.Songs;
