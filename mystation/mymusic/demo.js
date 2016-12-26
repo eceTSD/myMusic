@@ -20,7 +20,7 @@ function search() {
                 narrow: false,
                 autoplay: false,
                 showlrc: 1,
-                mutex: true,
+                mutex: false,
                 theme: '#ad7a86',
                 mode: 'random',               
                 music: data
