@@ -7,12 +7,15 @@ using System.Linq;
 
 
 public class MyMusic : IHttpHandler {
-    
+
     public void ProcessRequest (HttpContext context) {
         string s = context.Request.Params["s"] == null ? "" : context.Request.Params["s"].ToString();
-           if (s == "") { s = "陈奕迅"; }
-            context.Response.ContentType = "text/json";
-            List<Song> songlist = MusicApis.SearchApi(s, "1", "0", "20").Cast<Song>().ToList();
+        string type = context.Request.Params["type"] == null ? "1" : context.Request.Params["type"].ToString();
+        if (s == "") { s = "陈奕迅"; }
+        context.Response.ContentType = "text/json";
+
+        if(type == "1") {
+            List<Song> songlist = MusicApis.SearchApi(s, type, "0", "20").Cast<Song>().ToList();
             List<onesongnew> songl = new List<onesongnew>();
             foreach (Song song in songlist)
             {
@@ -28,9 +31,24 @@ public class MyMusic : IHttpHandler {
                 songl.Add(onesong);
             }
 
-            context.Response.Write(Utils.ObjectToJson(songl));
+            context.Response.Write(Utils.ObjectToJson(songl));}
+        else if(type == "10")
+        {
+            List<Album> albums = MusicApis.SearchApi(s, type, "0", "15").Cast<Album>().ToList();
+            context.Response.Write(Utils.ObjectToJson(albums));
+        }
+        else if(type == "1000")
+        {
+             List<AppList> AppList = MusicApis.SearchApi(s, type, "0", "15").Cast<AppList>().ToList();
+            context.Response.Write(Utils.ObjectToJson(AppList));
+        }
+
+
+
+
+
     }
- 
+
     public bool IsReusable {
         get {
             return false;

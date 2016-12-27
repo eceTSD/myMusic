@@ -8,7 +8,7 @@
     <link href="../../css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="site-notice" ><em style="color:beige">马上就要元旦啦！！！！祝各位领导同事新年快乐，身体健康O(∩_∩)O~~</em></div>
+    <div class="site-notice"><em style="color:beige">马上就要元旦啦！！！！祝各位领导同事新年快乐，身体健康O(∩_∩)O~~</em></div>
     <header class="site-header jumbotron">
         <div class="site-nav">
             <a>登录</a> <span>/</span> <a>注册</a>
@@ -19,7 +19,7 @@
             <div class="form-group" style="width:60%;margin:auto">
                 <input type="text" class="form-control search clearable" placeholder="搜索歌曲例如：陈奕迅" id="searchvalue">
                 <i class="fa fa-search">
-                    <button type="button" class="btn btn-default btn-sm" onclick="search()">
+                    <button type="button" class="btn btn-default btn-sm" onclick="search('1')">
                         <span class="glyphicon glyphicon-search"></span> Search
                     </button>
                 </i>
@@ -28,21 +28,23 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5">
-                <button type="button" class="btn btn-primary">单曲</button>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary" onclick="search('1')">单曲</button>
 
                 <!-- Indicates a successful or positive action -->
-                <button type="button" class="btn btn-success" >专辑</button>
+                <button type="button" class="btn btn-success" onclick="search('10')">专辑</button>
 
                 <!-- Indicates caution should be taken with this action -->
-                <button type="button" class="btn btn-warning">歌单</button>
-              
+                <button type="button" class="btn btn-warning" onclick="search('1000')">歌单</button>
+
+                <!-- Contextual button for informational alert messages -->
+                <button type="button" class="btn btn-info" onclick="come()">我的收藏</button>
 
                 <div class="widget widget-table">
 
                     <div class="widget-header">
                         <i class="icon-th-list"></i>
-                        <h3>歌曲列表</h3>
+                        <h3 >结果列表</h3>
                     </div> <!-- /widget-header -->
 
                     <div class="widget-content" id="songlist">
@@ -50,16 +52,18 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    
-                                    <th style='width:2%; text-align: left' ><button type="button" class="btn btn-default btn-sm" v-on:click="playall">
-    <span class="glyphicon glyphicon-headphones">
-    </span> 全部播放
-</button></th>
+
+                                    <th style='width:2%; text-align: left'>
+                                        <button type="button" class="btn btn-default btn-sm" v-on:click="playall">
+                                            <span class="glyphicon glyphicon-headphones">
+                                            </span> 全部播放
+                                        </button>
+                                    </th>
                                     <th style='width:10%; text-align: left'>歌名</th>
                                     <th style='width:10%; text-align: left'>专辑</th>
                                     <th style='width:5%; text-align: left'>作者</th>
                                     <th style='width:1%; text-align: left'></th>
-                                   
+
                                 </tr>
                             </thead>
 
@@ -71,8 +75,8 @@
                                             </span> 播放
                                         </button>
                                     </td>
-                                    <td >{{song.title}}</td>
-                                    <td>{{song.album}}</td>
+                                    <td>{{song.title}}</td>
+                                    <td ><a v-on:click="toalbum(song)">{{song.album}}</a></td>
                                     <td>{{song.author}}</td>
                                     <td><span class="glyphicon glyphicon-plus"></span></td>
                                 </tr>
@@ -81,22 +85,44 @@
 
                     </div> <!-- /widget-content -->
 
-                </div>           
+                </div>
+
+                <div class="row" id="albumlist">
+                    <div class="col-sm-6 col-md-4" v-for="app in appList">
+                        <div class="thumbnail">                            
+                                <img v-bind:src="app.BlurPicture" v-on:click="tosong(app)">                         
+                            <div class="caption">
+                                <p v-on:click="tosong(app)">{{app.Name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="applist">
+                    <div class="col-sm-6 col-md-4" v-for="app in appList">
+                        <div class="thumbnail">                           
+                                <img v-bind:src="app.CoverImgUrl" v-on:click="toappsong(app)">                          
+                            <div class="caption">
+                                <p v-on:click="toappsong(app)">{{app.Name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <p>播放列表</p>
-              
-               
+
+
                 <div id="player4" class="aplayer"></div>
             </div>
-           <div class="col-md-3"></div>
+
         </div>
     </div>
-        
-    
+
+
     <script src="../dist/APlayer.min.js"></script>
     <script src="../../js/jquery-3.1.1.js"></script>
-   
     <script src="../../js/vue.js"></script>
     <script src="mymusic.js"></script>
 </body>

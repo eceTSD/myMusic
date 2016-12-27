@@ -1,6 +1,6 @@
 $(document).ready(function () {
    
-    search();
+    search('1');
    
 
 });
@@ -16,30 +16,127 @@ var goodsVue = new Vue({
         },
         playall: function () {
             playsong(goodsVue.songList)
+        },
+        toalbum: function (song) {
+            getalbumsong(song.albumid)
         }
+
    }
     
 })
 
-function search() {
+var albumVue = new Vue({
+    el: '#albumlist',
+    data: {
+        appList: ''
+    },
+    methods: {
+        tosong: function (app) {
+            getalbumsong(app.Id)
+        }      
+    }
+})
+
+var appVue = new Vue({
+    el: '#applist',
+    data: {
+        appList: ''
+    },
+    methods: {
+        toappsong: function (app) {
+            getappsong(app.Id)
+        }
+    }
+})
+
+function search(type) {
     $.ajax({
         type: "post",
         url: "../../webservice/MyMusic.ashx",
         dataType: "json",
         data: {
-            s: $("#searchvalue").val()
+            s: $("#searchvalue").val(),
+            type:type
         },
         success: function (data) {
-            $.each(data, function (i, item) {
-                if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
-            })         
-            goodsVue.songList = data;
+            if (type == '1' || type == '0') {
+                $("#songlist").show();
+                $("#applist").hide();
+                $("#albumlist").hide();
+                
+                $.each(data, function (i, item) {
+                    if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
+                })
+                goodsVue.songList = data;
+            } else if (type == '10') {
+                $("#songlist").hide();
+                $("#applist").hide();
+                $("#albumlist").show();
+                albumVue.appList = data
+            } else {
+                $("#songlist").hide();
+                $("#applist").show();
+                $("#albumlist").hide();
+                appVue.appList = data
+            }
+           
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);
         }
     });
 }
+
+function getalbumsong(id) {
+    $.ajax({
+        type: "post",
+        url: "../../webservice/GetAlbum.ashx",
+        dataType: "json",
+        data: {
+           id:id
+        },
+        success: function (data) {         
+            $("#songlist").show();
+            $("#applist").hide();
+            $("#albumlist").hide();
+
+            $.each(data, function (i, item) {
+                if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
+            })
+            goodsVue.songList = data;
+
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+
+function getappsong(id) {
+    $.ajax({
+        type: "post",
+        url: "../../webservice/GetApplist.ashx",
+        dataType: "json",
+        data: {
+            id: id
+        },
+        success: function (data) {
+            $("#songlist").show();
+            $("#applist").hide();
+            $("#albumlist").hide();
+
+            $.each(data, function (i, item) {
+                if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
+            })
+            goodsVue.songList = data;
+
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+
 
 
 
@@ -54,4 +151,8 @@ function playsong(data) {
         mode: 'random',
         music: data
     });
+}
+
+function come() {
+    alert("coming soon");
 }

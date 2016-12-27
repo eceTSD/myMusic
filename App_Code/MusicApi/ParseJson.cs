@@ -58,6 +58,7 @@ public class ParseJson
         appList.Name = appListj.name;
         appList.PlayCount = appListj.playCount;
         appList.TrackCount = appListj.trackCount;
+        appList.CoverImgUrl = appListj.coverImgUrl;
         try
         {
             appList.TrackNumberUpdateTime = appListj.trackNumberUpdateTime;
