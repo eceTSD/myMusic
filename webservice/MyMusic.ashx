@@ -17,6 +17,9 @@ public class MyMusic : IHttpHandler {
             foreach (Song song in songlist)
             {
                 onesongnew onesong = new onesongnew();
+                onesong.id = song.Id;
+                onesong.albumid = song.Album.Id;
+                onesong.album = song.Album.Name;
                 onesong.title = song.Name;
                 onesong.author = song.Artist[0].Name;
                 onesong.url = song.Mp3Url;
