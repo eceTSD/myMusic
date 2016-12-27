@@ -21,7 +21,7 @@ public class Test : IHttpHandler {
                 onesong.author = album.Artist[0].Name;
                 onesong.url = song.Mp3Url;
                 onesong.albumid = album.Id;
-                onesong.album = album.Name;
+                onesong.album = album.Name.Length>10?album.Name.Substring(0,10)+"...":album.Name;
                 onesong.pic = album.PictureUrl;
                 onesong.lrc = MusicApis.LyricInfo(song.Id.ToString()).Lyr;
                 songl.Add(onesong);

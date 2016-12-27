@@ -50,6 +50,8 @@ var appVue = new Vue({
 })
 
 function search(type) {
+    $('#loading').show();
+    NProgress.start();
     $.ajax({
         type: "post",
         url: "../../webservice/MyMusic.ashx",
@@ -79,15 +81,21 @@ function search(type) {
                 $("#albumlist").hide();
                 appVue.appList = data
             }
-           
+            NProgress.done();
+            $('#loading').hide();
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
+            
+            NProgress.done();
+            $('#loading').hide();
             alert(errorThrown);
         }
     });
 }
 
 function getalbumsong(id) {
+    $('#loading').show();
+    NProgress.start();
     $.ajax({
         type: "post",
         url: "../../webservice/GetAlbum.ashx",
@@ -104,15 +112,20 @@ function getalbumsong(id) {
                 if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
             })
             goodsVue.songList = data;
-
+            NProgress.done();
+            $('#loading').hide();
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
+            NProgress.done();
+            $('#loading').hide();
             alert(errorThrown);
         }
     });
 }
 
 function getappsong(id) {
+    $('#loading').show();
+    NProgress.start();
     $.ajax({
         type: "post",
         url: "../../webservice/GetApplist.ashx",
@@ -129,9 +142,12 @@ function getappsong(id) {
                 if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
             })
             goodsVue.songList = data;
-
+            NProgress.done();
+            $('#loading').hide();
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
+            NProgress.done();
+            $('#loading').hide();
             alert(errorThrown);
         }
     });
