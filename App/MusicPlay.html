@@ -30,6 +30,10 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/vue.js"></script>
     <script src="../owl-carousel/owl.carousel.js"></script>
+
+    <!--Music Play CSS Files-->
+    <link rel="stylesheet" type="text/css" href="musicplay/music.css" />
+
 </head>
 <body>
 
@@ -80,12 +84,14 @@
     </header>
 
     <!--Content -->
-    <div id="page-content" class="index-page">
-        <div class="container">
-            
+    <div id="container">
+        <div id="player" class="player">
+            <div id="songName" class="songName">{{song.title}}</div>
+            <div id="singer" class="singer">{{song.author}}</div>
+            <audio id="audio" style="width:600px;" autoplay="autoplay" controls="controls"></audio>
+            <div id="out" class='out'></div>
         </div>
     </div>
-
     <footer>
         <div class="top-footer">
             <ul class="footer-social list-inline">
@@ -94,7 +100,7 @@
         </div>
     </footer>
 
-    <!-- JS -->
-        
+    <!--Music Play JavaScript Files-->
+    <script type="text/javascript" src="musicplay/music.js"></script>
 </body>
 </html>
