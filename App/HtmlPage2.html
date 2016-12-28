@@ -265,24 +265,15 @@
                                         </label>
                                     </td>-->                                    
                                     <td><a href="javascript:void(0);" v-on:click="sendid(song.id)" style="color:black">{{song.title}}</a></td>
-                                    <td>{{song.author}}</td>
-                                    <td>{{song.album}}</td>
+                                    <td><a href="javascript:void(0);" v-on:click="sendauthor(song.author)" style="color:black">{{song.author}}</a></td>
+                                    <td><a href="javascript:void(0);" v-on:click="album(song.albumid)" style="color:black">{{song.album}}</a></td>
                                     <td>
                                         <a href="javascript:void(0);" v-on:click="playone(song)" style="color:black"><i class="fa fa-play-circle-o" title="播放"></i></a>
                                         &nbsp;&nbsp;
                                         <a href="javascript:void(0);" v-on:click="delItems(song)" style="color:black"><i class="glyphicon glyphicon-minus" title="删除"></i></a>
                                     </td>
-                                </tr>
-                                <!--<tr>
-                                    <td colspan="5">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">add</button>
-                                        <button type="button" class="btn btn-primary" v-on:click="delItems">delete</button>
-                                    </td>
-                                </tr>-->
-                            </table>
-                            <!--<p>Checked names: {{ checkedNames }}</p>-->
-                            <!-- end modal -->
-
+                                </tr>                                
+                            </table>                            
                         </div>
                     </div>
                     <div id="sidebar" class="col-md-4">
@@ -419,7 +410,11 @@
             },
             sendid: function (songid) {
                 var url = "MusicPlay.html?songid=" + songid;
-                location.href = url
+                open(url);
+            },
+            sendauthor: function (author) {
+                document.getElementById("searchname").value = author;
+                search();
             },
         }
     })
