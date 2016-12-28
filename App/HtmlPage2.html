@@ -17,250 +17,261 @@
 
 
     <!-- Owl Carousel Assets -->
-    <link href="../owl-carousel/owl.carousel.css" rel="stylesheet" />
-    <link href="../owl-carousel/owl.theme.css" rel="stylesheet" />
+    <link href="../APP/ThirdParty/owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <link href="../APP/ThirdParty/owl-carousel/owl.theme.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link rel="stylesheet" href="../font-awesome-4.4.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../APP/ThirdParty/font-awesome-4.4.0/css/font-awesome.min.css" type="text/css" />
 
     <!-- jQuery -->
     <script src="../js/jquery-3.1.1.js"></script>
 
     <!-- Core JavaScript Files -->
+    <!--<script src="//wow.techbrood.com/libs/jquery/jquery.min.js"></script>-->
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../APP/ThirdParty/owl-carousel/owl.carousel.js"></script>
+    <script src="../mystation/dist/APlayer.min.js"></script>
     <script src="../js/vue.js"></script>
-    <script src="../owl-carousel/owl.carousel.js"></script>
 </head>
 <body>
 
-        <header>
-            <!--Top-->
-            <nav id="top">
-                <div class="container">
-                    <div class="row nav-img">
-                        <div class="col-md-12 col-sm-12">
-                            <!--<strong>Welcome to MyMusic!</strong>-->
-                            <img src="../images/logo.png" />
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-            <!--Navigation-->
-            <nav id="menu" class="navbar">
-                <div class="container">
-                    <div class="navbar-header">
-                        <span id="heading" class="visible-xs">菜单</span>
-                        <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
-                    </div>
-                    <div class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-home"></i> 首页</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> 歌曲</a></li>
-                            <li><a href="#"><i class="fa fa-list"></i> 专辑</a></li>
-                            <li><a href="#"><i class="fa fa-play-circle-head"></i> 歌手</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 账户</a>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown-inner">
-                                        <ul class="list-unstyled">
-                                            <li><a href="archive.html">Login</a></li>
-                                            <li><a href="archive.html">Register</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <!--owlCarousel-->
-            <div class="header-slide">
-                <div id="owl-demo" class="owl-carousel">
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>JAY</p>
-                            </div>
-                            <img src="../images/jay1.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>范特西</p>
-                            </div>
-                            <img src="../images/jay2.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>八度空间</p>
-                            </div>
-                            <img src="../images/jay3.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>叶惠美</p>
-                            </div>
-                            <img src="../images/jay4.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>七里香</p>
-                            </div>
-                            <img src="../images/jay5.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>十一月的萧邦</p>
-                            </div>
-                            <img src="../images/jay6.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>依然范特西</p>
-                            </div>
-                            <img src="../images/jay7.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>我很忙</p>
-                            </div>
-                            <img src="../images/jay8.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>魔杰座</p>
-                            </div>
-                            <img src="../images/jay9.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>跨时代</p>
-                            </div>
-                            <img src="../images/jay10.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>惊叹号</p>
-                            </div>
-                            <img src="../images/jay11.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>十二新作</p>
-                            </div>
-                            <img src="../images/jay12.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>哎哟，不错哦</p>
-                            </div>
-                            <img src="../images/jay13.jpg" />
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="zoom-container">
-                            <div class="zoom-caption">
-                                <a href="single.html">
-                                    <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                </a>
-                                <p>周杰伦的床边故事</p>
-                            </div>
-                            <img src="../images/jay14.jpg" />
-                        </div>
+    <header>
+        <!--Top-->
+        <nav id="top">
+            <div class="container">
+                <div class="row nav-img">
+                    <div class="col-md-12 col-sm-12">
+                        <!--<strong>Welcome to MyMusic!</strong>-->
+                        <img src="../images/logo.png" />
                     </div>
                 </div>
             </div>
-        </header>
+        </nav>
+
+        <!--Navigation-->
+        <nav id="menu" class="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <span id="heading" class="visible-xs">菜单</span>
+                    <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="HtmlPage.html"><i class="fa fa-home"></i> 首页</a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i> 歌曲</a></li>
+                        <li><a href="#"><i class="fa fa-list"></i> 专辑</a></li>
+                        <li><a href="#"><i class="fa fa-play-circle-head"></i> 歌手</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 账户</a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-inner">
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">登录</a></li>
+                                        <li><a href="#">注册</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--owlCarousel-->
+        <div class="header-slide">
+            <div id="owl-demo" class="owl-carousel">
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18918)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>JAY</p>
+                        </div>
+                        <img src="../images/jay1.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18915)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>范特西</p>
+                        </div>
+                        <img src="../images/jay2.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18907)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>八度空间</p>
+                        </div>
+                        <img src="../images/jay3.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18905)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>叶惠美</p>
+                        </div>
+                        <img src="../images/jay4.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18903)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>七里香</p>
+                        </div>
+                        <img src="../images/jay5.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18896)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>十一月的萧邦</p>
+                        </div>
+                        <img src="../images/jay6.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18893)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>依然范特西</p>
+                        </div>
+                        <img src="../images/jay7.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18886)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>我很忙</p>
+                        </div>
+                        <img src="../images/jay8.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18877)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>魔杰座</p>
+                        </div>
+                        <img src="../images/jay9.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18875)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>跨时代</p>
+                        </div>
+                        <img src="../images/jay10.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(18869)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>惊叹号</p>
+                        </div>
+                        <img src="../images/jay11.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(2263029)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>十二新作</p>
+                        </div>
+                        <img src="../images/jay12.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(3084335)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>哎哟，不错哦</p>
+                        </div>
+                        <img src="../images/jay13.jpg" />
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="zoom-container">
+                        <div class="zoom-caption">
+                            <a href="javascript:void(0);" onclick="album(34720827)">
+                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+                            </a>
+                            <p>周杰伦的床边故事</p>
+                        </div>
+                        <img src="../images/jay14.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
         <!--Content -->
         <div id="page-content" class="index-page">
             <div class="container">
                 <div class="row">
                     <div id="main-content" class="col-md-8">
-                        <h1>Vue demo</h1>
+                        <div class="widget wid-tags">
+                            <div class="heading"><h4><i class="fa fa-songlist"></i> 歌曲列表</h4></div>
+                        </div>
                         <div id="app">
                             <table class="table table-striped">
                                 <tr>
-                                    <td><!--<input type="checkbox">--></td>
-                                    <td>id</td>
-                                    <td>书名</td>
-                                    <td>作者</td>
-                                    <td>价格</td>
+                                    <!--<td><input type="checkbox"></td>-->                                    
+                                    <td style="font-weight:bold">歌名</td>
+                                    <td style="font-weight:bold">歌手</td>
+                                    <td style="font-weight:bold">专辑</td>
+                                    <td style="font-weight:bold">
+                                        操作
+                                        <a href="javascript:void(0);" v-on:click="playall()" style="color:black"><i class="fa fa-play-circle-o" title="全部播放"></i></a>
+                                    </td>
                                 </tr>
-                                <tr v-for="book in books ">
-                                    <td>
+                                <tr v-for="song in songs ">
+                                    <!--<td>
                                         <label>
                                             <input type="checkbox" v-bind:value="book.id" v-model="checkedNames">
                                         </label>
+                                    </td>-->                                    
+                                    <td><a href="javascript:void(0);" v-on:click="sendid(song.id)" style="color:black">{{song.title}}</a></td>
+                                    <td>{{song.author}}</td>
+                                    <td>{{song.album}}</td>
+                                    <td>
+                                        <a href="javascript:void(0);" v-on:click="playone(song)" style="color:black"><i class="fa fa-play-circle-o" title="播放"></i></a>
+                                        &nbsp;&nbsp;
+                                        <a href="javascript:void(0);" v-on:click="delItems(song)" style="color:black"><i class="glyphicon glyphicon-minus" title="删除"></i></a>
                                     </td>
-                                    <td><a href="">{{book.id}}</a></td>
-                                    <td>{{book.name}}</td>
-                                    <td>{{book.author}}</td>
-                                    <td>{{book.price}}</td>
                                 </tr>
                                 <!--<tr>
                                     <td colspan="5">
@@ -269,7 +280,7 @@
                                     </td>
                                 </tr>-->
                             </table>
-                            <p>Checked names: {{ checkedNames }}</p>
+                            <!--<p>Checked names: {{ checkedNames }}</p>-->
                             <!-- end modal -->
 
                         </div>
@@ -280,208 +291,18 @@
                             <div class="heading"><h4><i class="fa fa-search"></i> 搜索</h4></div>
                             <div class="content">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" style="height:34px;margin:0 0;border:1px solid #ccc" />
+                                    <input id="searchname" type="text" class="form-control" style="height:34px;margin:0 0;border:1px solid #ccc" />
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                        <button class="btn btn-default" type="button" onclick="search()"><i class="fa fa-search"></i></button>
                                     </span>
                                 </div>
                             </div>
                             <div class="line"></div>
                         </div>
-                        <!---- music top ---->
-                        <div class="widget wid-post">
-                            <div class="heading"><h4><i class="fa fa-globe"></i> 单曲点击Top3</h4></div>
-                            <div class="content">
-                                <div class="post wrap-vid">
-                                    <div class="zoom-container">
-                                        <div class="zoom-caption">
-                                            <span>Top 1</span>
-                                            <a href="gequ.html">
-                                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                            </a>
-                                        </div>
-                                        <img src="../images/top1.jpg" />
-                                    </div>
-                                    <div class="wrapper">
-                                        <h5 class="vid-name"><a href="gequ.html">今年勇</a></h5>
-                                        <div class="info">
-                                            <h6>By <a href="geshou.html">许嵩</a></h6>
-                                            <span><i class="fa fa-heart"></i><a href="zhuanji.html">今年勇</a></span>
-                                            <span><i class="fa fa-calendar"></i>22/12/2016</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="post wrap-vid">
-                                    <div class="zoom-container">
-                                        <div class="zoom-caption">
-                                            <span>Top 2</span>
-                                            <a href="gequ.html">
-                                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                            </a>
-                                        </div>
-                                        <img src="../images/top2.jpg" />
-                                    </div>
-                                    <div class="wrapper">
-                                        <h5 class="vid-name"><a href="gequ.html">嘿，抬头！</a></h5>
-                                        <div class="info">
-                                            <h6>By <a href="geshou.html">贰佰</a></h6>
-                                            <span><i class="fa fa-heart"></i><a href="zhuanji.html">嘿，抬头！</a></span>
-                                            <span><i class="fa fa-calendar"></i>22/12/2016</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="post wrap-vid">
-                                    <div class="zoom-container">
-                                        <div class="zoom-caption">
-                                            <span>Top 3</span>
-                                            <a href="gequ.html">
-                                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                            </a>
-                                        </div>
-                                        <img src="../images/top3.jpg" />
-                                    </div>
-                                    <div class="wrapper">
-                                        <h5 class="vid-name"><a href="gequ.html">让我留在你身边</a></h5>
-                                        <div class="info">
-                                            <h6>By <a href="geshou.html">陈奕迅</a></h6>
-                                            <span><i class="fa fa-heart"></i><a href="zhuanji.html">让我留在你身边</a></span>
-                                            <span><i class="fa fa-calendar"></i>8/11/2016</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="line"></div>
-                        </div>
-                        <!---- Album top ---->
-                        <div class="widget wid-news">
-                            <div class="heading"><h4><i class="fa fa-clock-o"></i> 专辑收藏Top3</h4></div>
-                            <div class="content">
-                                <div class="wrap-vid">
-                                    <div class="zoom-container">
-                                        <div class="zoom-caption">
-                                            <span>Top1</span>
-                                            <a href="zhuanji.html">
-                                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                            </a>
-                                        </div>
-                                        <img src="../images/top4.jpg" style="width:200px;height:180px" />
-                                    </div>
-                                    <h3 class="vid-name"><a href="zhuanji.html">Live By Night</a></h3>
-                                    <div class="info">
-                                        <h5>By <a href="#">Harry Gregson-Williams</a></h5>
-                                        <span><i class="fa fa-calendar"></i>23/12/2016</span>
-                                    </div>
-                                </div>
-                                <div class="wrap-vid">
-                                    <div class="zoom-container">
-                                        <div class="zoom-caption">
-                                            <span>Top2</span>
-                                            <a href="zhuanji.html">
-                                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                            </a>
-                                        </div>
-                                        <img src="../images/top5.jpg" style="width:200px;height:181px" />
-                                    </div>
-                                    <h3 class="vid-name"><a href="zhuanji.html">Nocturnal</a></h3>
-                                    <div class="info">
-                                        <h5>By <a href="#">Roy Woods</a></h5>
-                                        <span><i class="fa fa-calendar"></i>23/12/2016</span>
-                                    </div>
-                                </div>
-                                <div class="wrap-vid">
-                                    <div class="zoom-container">
-                                        <div class="zoom-caption">
-                                            <span>Top3</span>
-                                            <a href="zhuanji.html">
-                                                <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                            </a>
-                                        </div>
-                                        <img src="../images/top6.jpg" style="width:200px;height:181px" />
-                                    </div>
-                                    <h3 class="vid-name"><a href="zhuanji.html">Us Or Else: Letter To The System</a></h3>
-                                    <div class="info">
-                                        <h5>By <a href="#">T.I.</a></h5>
-                                        <span><i class="fa fa-calendar"></i>16/12/2016</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="line"></div>
-                        </div>
-                        <!---- singer top ---->
-                        <div class="widget wid-post">
-                            <div class="heading"><h4><i class="fa fa-comments"></i> 歌手人气Top3</h4></div>
-                            <div class="content">
-                                <div class="post">
-                                    <a href="geshou.html">
-                                        <img src="../images/top7.jpg" />
-                                    </a>
-                                    <div class="wrapper">
-                                        <a href="geshou.html"><h5>张惠妹</h5></a>
-                                        <ul class="list-inline">
-                                            <li style="width:290px">我是a MEI，一個你認識很久，卻認識不完的女人。</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="post">
-                                    <a href="geshou.html">
-                                        <img src="../images/top8.jpg" />
-                                    </a>
-                                    <div class="wrapper">
-                                        <a href="geshou.html"><h5>金玟岐</h5></a>
-                                        <ul class="list-inline">
-                                            <li style="width:290px">一些人把看到的用笔画出来，我把它们用歌写出来。</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="post">
-                                    <a href="geshou.html">
-                                        <img src="../images/top9.jpg" />
-                                    </a>
-                                    <div class="wrapper">
-                                        <a href="geshou.html"><h5>许嵩</h5></a>
-                                        <ul class="list-inline">
-                                            <li style="width:290px">庐山烟雨浙江潮，未到千般恨不消。 及至到来无一事，庐山烟雨浙江潮。</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="line"></div>
-                        </div>
-                        <!---- follow us ---->
-                        <div class="widget wid-follow">
-                            <div class="heading"><h4><i class="fa fa-users"></i> 加入我们</h4></div>
-                            <div class="content">
-                                <ul class="list-inline">
-                                    <li>
-                                        <a href="https://www.douban.com/people/xiaxiaomi/">
-                                            <div class="box-facebook">
-                                                <span class="fa fa-facebook fa-2x icon"></span>
-                                                <span>1250</span>
-                                                <span>Fans</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="http://weibo.com/musicbaidu">
-                                            <div class="box-twitter">
-                                                <span class="fa fa-twitter fa-2x icon"></span>
-                                                <span>1250</span>
-                                                <span>Fans</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="http://music.163.com/">
-                                            <div class="box-google">
-                                                <span class="fa fa-google-plus fa-2x icon"></span>
-                                                <span>1250</span>
-                                                <span>Fans</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <img src="../images/banner.jpg" />
-                            </div>
+                        <!---- music play ---->
+                        <div class="widget wid-tags">
+                            <div class="heading"><h4><i class="fa fa-play-circle-o"></i> 播放</h4></div>
+                            <div id="player4" class="aplayer"></div>
                         </div>
                     </div>
                 </div>
@@ -498,6 +319,7 @@
 
     <!-- JS -->
     <script>
+    //头部横向滚动条
     $(document).ready(function() {
       $("#owl-demo").owlCarousel({
         autoPlay: 3000,
@@ -507,59 +329,138 @@
       });
 
     });
-    </script>
-    <script>
-        var jsobj = [{
-            id: '1',
-            author: '曹雪芹',
-            name: '红楼梦',
-            price: 32.0
-        }, {
-            id: '2',
-            author: '施耐庵',
-            name: '水浒传',
-            price: 30.0
-        }, {
-            id: '3',
-            author: '罗贯中',
-            name: '三国演义',
-            price: 24.0
-        }, {
-            id: '4',
-            author: '吴承恩',
-            name: '西游记',
-            price: 20.0
-        }];
 
-        new Vue({
-            el: '#app',
-            data: {
-                book: {
-                    id: '0',
-                    author: '',
-                    name: '',
-                    price: ''
+    //滚动至播放器
+    function roll() {
+        $('html, body').animate({
+            scrollTop: $("#page-content").offset().top
+        }, 2000);
+    }
+
+    //获取url
+    function GetQueryString(namea) {
+        var reg = new RegExp("(^|&)" + namea + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURIComponent(r[2]); return null;
+    }
+
+    //页面初始化，判断url有没有值
+    $(document).ready(function () {
+        var searchvalue = GetQueryString("value");
+        if (searchvalue != null && searchvalue.toString().length > 1) {
+            document.getElementById("searchname").value = searchvalue;
+            search();
+        }
+        else {
+            $.ajax({
+                type: "post",
+                url: "../../webservice/MyMusic.ashx",
+                dataType: "json",
+                data: {
+                    s: $("#searchname").val()
                 },
-                checkedNames: [],
-                books: jsobj
+                success: function (data) {
+                    $.each(data, function (i, item) {
+                        if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
+                    })
+                    VueList.songs = data;
+                    play(VueList.songs);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+    });
+
+    //查询
+    function search() {
+        $.ajax({
+            type: "post",
+            url: "../../webservice/MyMusic.ashx",
+            dataType: "json",
+            data: {
+                s: $("#searchname").val()
             },
-            methods:{
-                delItems : function() {
-                    for (var i = 0 ; i < this.checkedNames.length ; i++) {
-                        for(var j = 0 ; j < this.books.length ; j++){
-                            var cur_book = this.books[j];
-                            if(cur_book.id == this.checkedNames[i]){
-                                this.books.splice(j,1);
-                            }
+            success: function (data) {
+                $.each(data, function (i, item) {
+                    if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
+                })
+                VueList.songs = data;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+    }
+
+    //vue
+    var VueList = new Vue({
+        el: '#app',
+        data: {
+            songs: ''
+        },
+        methods: {
+            playone: function (song) {
+                play(song);
+                roll();
+            },
+            delItems : function(song) {                
+                    for (var j = 0 ; j < this.songs.length ; j++) {
+                        var cur_song = this.songs[j];
+                        if (cur_song.id == song.id) {
+                            this.songs.splice(j, 1);
                         }
                     }
-                    this.checkedNames = [];
-                },
-                addItem :　function(){
-                    this.books.push(this.book);
-                }
-            }
+            },
+            playall: function () {
+                play(VueList.songs);
+                roll();
+            },
+            sendid: function (songid) {
+                var url = "MusicPlay.html?songid=" + songid;
+                location.href = url
+            },
+        }
+    })
+
+    //播放器
+    function play(data) {
+        var ap4 = new APlayer({
+            element: document.getElementById('player4'),
+            narrow: false,
+            autoplay: false,
+            showlrc: 1,
+            mutex: true,
+            theme: '#ad7a86',
+            mode: 'random',
+            music: data
         })
-    </script>
+    }
+
+    //搜专辑加载到播放器
+    function album(albumid) {
+        $.ajax({
+            type: "post",
+            url: "../../webservice/GetAlbum.ashx",
+            dataType: "json",
+            data: {
+                id: albumid
+            },
+            success: function (data) {
+                $.each(data, function (i, item) {
+                    if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
+                })
+                VueList.songs = data;
+                play(data);
+                roll();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+    }
+
+    </script>    
 </body>
 </html>
