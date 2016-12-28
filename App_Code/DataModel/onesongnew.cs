@@ -8,6 +8,8 @@ using System.Web;
 /// </summary>
 public class onesongnew
 {
+    private long _id;
+
     private string _title;
 
     private string _author;
@@ -17,6 +19,10 @@ public class onesongnew
     private string _pic;
 
     private string _lrc;
+
+    private string _album;
+
+    private long _albumid;
 
     public string title
     {
@@ -80,6 +86,45 @@ public class onesongnew
         set
         {
             _lrc = value;
+        }
+    }
+
+    public string album
+    {
+        get
+        {
+            return _album;
+        }
+
+        set
+        {
+            _album = value;
+        }
+    }
+
+    public long id
+    {
+        get
+        {
+            return _id;
+        }
+
+        set
+        {
+            _id = value;
+        }
+    }
+
+    public long albumid
+    {
+        get
+        {
+            return _albumid;
+        }
+
+        set
+        {
+            _albumid = value;
         }
     }
 }

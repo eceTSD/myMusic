@@ -7,7 +7,7 @@ public class register : IHttpHandler {
 
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";
-        MyDB.ExecuteSql("select * from UserInfo");
+        MyDB.ExecuteSql("");
         context.Response.Write("Hello World");
     }
 
