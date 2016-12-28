@@ -1,5 +1,8 @@
 $(document).ready(function () {
-    search();
+
+    var searchvalue = GetQueryString("songid");
+
+    search(searchvalue);
 })
 
 var musV = new Vue({
@@ -9,13 +12,20 @@ var musV = new Vue({
     }
 })
 
-function search() {
+function GetQueryString(namea) {
+    var reg = new RegExp("(^|&)" + namea + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURIComponent(r[2]); return null;
+}
+
+
+function search(searchvalue) {
     $.ajax({
         type: "post",
         url: "../../webservice/MusicPlay.ashx",
         dataType: "json",
         data: {
-            s: $("#searchvalue").val()
+            s: searchvalue
         },
         success: function (data) {
             /*$.each(data, function (i, item) {
