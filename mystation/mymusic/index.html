@@ -13,7 +13,7 @@
     <div class="site-notice"><em style="color:beige">马上就要元旦啦！！！！祝各位领导同事新年快乐，身体健康O(∩_∩)O~~</em></div>
     <header class="site-header jumbotron">
         <div class="site-nav">
-            <a>登录</a> <span>/</span> <a>注册</a>
+           <span class="glyphicon glyphicon-tags"></span>
         </div><div class="container">
             <h1 style="color:cornsilk">我的音乐小站</h1><p style="color:cornsilk">做一个喜欢音乐的好人</p>
         </div>
@@ -29,7 +29,7 @@
         </form>
     </header>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" >
             <div class="col-md-6">
                 <button type="button" class="btn btn-primary" onclick="search('1')">单曲</button>
 
@@ -80,7 +80,7 @@
                                     <td>{{song.title}}</td>
                                     <td ><a v-on:click="toalbum(song)">{{song.album}}</a></td>
                                     <td>{{song.author}}</td>
-                                    <td><span class="glyphicon glyphicon-plus"></span></td>
+                                    <td><span class="glyphicon glyphicon-plus" onclick="come()"></span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -113,7 +113,10 @@
 
             </div>
             <div class="col-md-6">
-                <p>播放列表</p>
+                <div class="widget-header" style="margin-top:32px">
+                    <i class="icon-th-list"></i>
+                    <h3>播放列表</h3>
+                </div> <!-- /widget-header -->
 
 
                 <div id="player4" class="aplayer"></div>
@@ -129,7 +132,10 @@
             </div>
         </div>
         </div>
-
+    <footer id="footer" class="footer hidden-print" style="background-color:orangered" >        
+        <div class="copy-right" style="color:white"><span>© 2016-2017</span> <span>超汶波工作室出品</span></div>
+    </footer>
+    <a href="#" id="back-to-top" style="display: inline;width:30px;height:30px;line-height:30px;background-color:coral"><spen class="glyphicon glyphicon-chevron-up"></spen></a>
 
     <script src="../dist/APlayer.min.js"></script>
     <script src="../../js/jquery-3.1.1.js"></script>
