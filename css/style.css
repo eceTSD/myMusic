@@ -181,7 +181,7 @@ body.sub-page .logo {margin: 110px 0 80px;background: url(../images/bg.jpg) fixe
 .box .dropcap {font-size: 70px;line-height: 70px;font-weight: 500;float: left;margin-right: 20px;}
 
 ul.pagination{margin: 26px auto 0px;}
-ul.pagination li a{border: 1px solid #FD0005;color: #444;}
+ul.pagination li a{border: 1px solid #ddd;color: #444;}
 ul.pagination li a:hover{background-color: #FD0005;color: #fff;border: 1px solid #FD0005;}
 
 

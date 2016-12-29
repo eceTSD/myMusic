@@ -244,7 +244,8 @@
                 <div class="row">
                     <div id="main-content" class="col-md-8">
                         <div class="widget wid-tags">
-                            <div class="heading"><h4><i class="fa fa-songlist"></i> 歌曲列表</h4></div>
+                            <div class="heading"><h4 style="cursor:pointer;font-size:20px" onclick="display(1)" id="aa"><i class="fa fa-songlist"></i> 歌曲列表</h4></div>
+                            <div class="heading"><h4 style="cursor:pointer" onclick="display(2)" id="bb"><i class="fa fa-play-circle-o"></i> 临时歌单</h4></div>
                         </div>
                         <div id="app">
                             <table class="table table-striped">
@@ -271,9 +272,46 @@
                                         <a href="javascript:void(0);" v-on:click="playone(song)" style="color:black"><i class="fa fa-play-circle-o" title="播放"></i></a>
                                         &nbsp;&nbsp;
                                         <a href="javascript:void(0);" v-on:click="delItems(song)" style="color:black"><i class="glyphicon glyphicon-minus" title="删除"></i></a>
+                                        &nbsp;&nbsp;
+                                        <a href="javascript:void(0);" v-on:click="add(song)" style="color:black"><i class="glyphicon glyphicon-plus" title="添加"></i></a>
                                     </td>
                                 </tr>                                
                             </table>                            
+                        </div>
+                        <div id="app1" style="display:none">
+                            <table class="table table-striped">
+                                <tr>
+                                    <!--<td><input type="checkbox"></td>-->
+                                    <td style="font-weight:bold">歌名</td>
+                                    <td style="font-weight:bold">歌手</td>
+                                    <td style="font-weight:bold">专辑</td>
+                                    <td style="font-weight:bold">
+                                        操作
+                                        <a href="javascript:void(0);" v-on:click="all()" style="color:black"><i class="fa fa-play-circle-o" title="全部播放"></i></a>
+                                    </td>
+                                </tr>
+                                <tr v-for="song in songs ">
+                                    <td>{{song.title}}</td>
+                                    <td>{{song.author}}</td>
+                                    <td>{{song.album}}</td>
+                                    <td>
+                                        <a href="javascript:void(0);" v-on:click="del(song)" style="color:black"><i class="glyphicon glyphicon-minus" title="删除"></i></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>                        
+                        <div id="page" style="float:right">
+                            <nav>
+                                <ul class="pagination">
+                                    <li><a href="javascript:void(0);" onclick="page(this)">1</a></li>
+                                    <li><a href="javascript:void(0);" onclick="page(this)">2</a></li>
+                                    <li><a href="javascript:void(0);" onclick="page(this)">3</a></li>
+                                    <li><a href="javascript:void(0);" onclick="page(this)">4</a></li>
+                                    <li><a href="javascript:void(0);" onclick="page(this)">5</a></li>
+                                </ul>
+                            </nav>
+                            <input id="content" style="display:none" />
+                            <input id="type" style="display:none" />
                         </div>
                     </div>
                     <div id="sidebar" class="col-md-4">
@@ -335,7 +373,7 @@
         if (r != null) return decodeURIComponent(r[2]); return null;
     }
 
-    //页面初始化，判断url有没有值
+    //页面初始化，并判断url有没有值
     $(document).ready(function () {
         var searchvalue = GetQueryString("value");
         if (searchvalue != null && searchvalue.toString().length > 1) {
@@ -345,7 +383,7 @@
         else {
             $.ajax({
                 type: "post",
-                url: "../../webservice/MyMusic.ashx",
+                url: "../webservice/MyMusic.ashx",
                 dataType: "json",
                 data: {
                     s: $("#searchname").val()
@@ -356,6 +394,8 @@
                     })
                     VueList.songs = data;
                     play(VueList.songs);
+                    document.getElementById("content").value = "陈奕迅";
+                    document.getElementById("type").value = "1";
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert(errorThrown);
@@ -368,7 +408,7 @@
     function search() {
         $.ajax({
             type: "post",
-            url: "../../webservice/MyMusic.ashx",
+            url: "../webservice/MyMusic.ashx",
             dataType: "json",
             data: {
                 s: $("#searchname").val()
@@ -378,6 +418,14 @@
                     if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
                 })
                 VueList.songs = data;
+                document.getElementById('page').style.display = "";
+                var sval = $("#searchname").val();
+                if (sval == null || sval == "") {
+                    document.getElementById("content").value = "陈奕迅";
+                } else {
+                    document.getElementById("content").value = sval;
+                }
+                document.getElementById("type").value = "1";
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert(errorThrown);
@@ -416,6 +464,34 @@
                 document.getElementById("searchname").value = author;
                 search();
             },
+            add: function (song) {
+
+                Vuesheet.songs.push(song);
+
+            }
+        }
+    })
+
+    var jsob = [{ "title": "陪你度过漫长岁月", "author": "陈奕迅", "url": "http://m2.music.126.net/F3l8CNk2SrKp8DzWHy64Tg==/3437073349214945.mp3", "pic": "http://p3.music.126.net/qW4N08_Q8PSePV7iewwvHg==/3438172860758204.jpg", "lrc": "[00:00.00] 作曲 : 黎晓阳/谢国维\n[00:01.00] 作词 : 葛大为\n[00:09.00]\n[00:10.61]走过了人来人往\n[00:15.31]不喜欢也得欣赏\n[00:20.00]我是沉默的存在\n[00:25.15]不当你的世界 只作你肩膀\n[00:29.68]拒绝成长到成长\n[00:34.53]变成想要的模样\n[00:39.34]在举手投降以前\n[00:42.85]让我再陪你一段\n[00:49.02]陪你把沿路感想活出了答案\n[00:53.65]陪你把独自孤单变成了勇敢\n[00:59.04]一次次失去又重来 我没离开\n[01:03.92]陪伴是 最长情的告白\n[01:08.17]陪你把想念的酸 拥抱成温暖\n[01:12.83]陪你把彷徨 写出情节来\n[01:18.10]未来多漫长 再漫长 还有期待\n[01:23.10]陪伴你 一直到 故事给说完\n[01:30.23]\n[01:46.77]让我们静静分享\n[01:51.36]此刻难得的坦白\n[01:56.11]只是无声地交谈\n[01:59.51]感觉幸福 感觉不孤单\n[02:05.63]陪你把沿路感想 活出了答案\n[02:10.51]陪你把独自孤单 变成了勇敢\n[02:15.71]一次次失去 又重来 我没离开\n[02:20.93]陪伴是 最长情的告白\n[02:25.06]陪你把想念的酸 拥抱成温暖\n[02:29.67]陪你把彷徨 写出情节来\n[02:34.91]未来多漫长 再漫长 还有期待\n[02:39.87]陪伴你 一直到 故事给说完\n[02:48.75]\n[03:03.54]陪你把沿路感想 活出了答案\n[03:08.07]陪你把独自孤单 变成了勇敢\n[03:13.26]一次次失去 又重来 我没离开\n[03:18.39]陪伴是 最长情的告白\n[03:22.51]陪你把想念的酸 拥抱成温暖\n[03:27.35]陪你把彷徨 写出情节来\n[03:32.51]未来多漫长 再漫长 还有期待\n[03:37.42]陪伴你 一直到 这故事说完\n[03:46.23]\n", "album": "陪你度过漫长岁月", "id": 35403523, "albumid": 3319407 }]
+
+    //vue临时歌单
+    var Vuesheet = new Vue({
+        el: '#app1',
+        data: {            
+            songs:jsob
+        },
+        methods: {
+            del: function (song) {
+                for (var j = 0 ; j < this.songs.length ; j++) {
+                    var cur_song = this.songs[j];
+                    if (cur_song.id == song.id) {
+                        this.songs.splice(j, 1);
+                    }
+                }
+            },
+            all: function () {
+                play(Vuesheet.songs);
+            }
         }
     })
 
@@ -437,7 +513,7 @@
     function album(albumid) {
         $.ajax({
             type: "post",
-            url: "../../webservice/GetAlbum.ashx",
+            url: "../webservice/GetAlbum.ashx",
             dataType: "json",
             data: {
                 id: albumid
@@ -448,12 +524,60 @@
                 })
                 VueList.songs = data;
                 play(data);
+                document.getElementById('page').style.display = "none";
+                document.getElementById("type").value = "2";
                 roll();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert(errorThrown);
             }
         });
+    }
+
+    //伪分页
+    function page(data) {
+        var offset = data.innerHTML;
+        offset = (offset - 1)*20;
+        $.ajax({
+            type: "post",
+            url: "../webservice/MyMusicTest.ashx",
+            dataType: "json",
+            data: {
+                s: $("#content").val(),
+                offset: offset,
+            },
+            success: function (data) {
+                $.each(data, function (i, item) {
+                    if (item.lrc != null) { item.lrc = item.lrc.replace(/\"/g, "'"); }
+                })
+                VueList.songs = data;                
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+    }
+
+    //临时歌单
+    function display(data) {
+        if (data == "1") {
+            document.getElementById('aa').style.fontSize = "20px";
+            document.getElementById('bb').style.fontSize = "14px";
+            document.getElementById('app').style.display = "";
+            document.getElementById('app1').style.display = "none";            
+            if ($("#type").val() == "1") {
+                document.getElementById('page').style.display = "";
+            } else {
+                document.getElementById('page').style.display = "none";
+            }
+        }
+        else {
+            document.getElementById('aa').style.fontSize = "14px";
+            document.getElementById('bb').style.fontSize = "20px";
+            document.getElementById('app').style.display = "none";
+            document.getElementById('app1').style.display = "";
+            document.getElementById('page').style.display = "none";
+        }        
     }
 
     </script>    
