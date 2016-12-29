@@ -215,6 +215,8 @@ function message() {
                         }
                         else if (data.statue == 200) {
                             alert("提交成功感谢有你O(∩_∩)O")
+                            messageSearch();
+                            
                         } else if (data.statue == 400) {
                             alert("提交失败请稍后再试/(ㄒoㄒ)/~~")
                         }
