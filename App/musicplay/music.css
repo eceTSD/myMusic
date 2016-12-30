@@ -1,6 +1,6 @@
 .player {
     margin: auto;
-    width: 600px;
+    width:unset;
     position: relative;
 }
 
@@ -43,4 +43,25 @@
     opacity: 0.2;
     box-shadow: 2px 3px 4px #888888;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.panel.lyric {
+	height: 550px;
+	overflow-y: scroll;
+}
     
+.panel.lyric .lyric_wrap #lyric li {
+  text-align: center;
+  font-size: 15px;
+  padding: 5px 0;
+}
+.panel.lyric .lyric_wrap #lyric li.on {
+  font-weight: bold;
+  color: #36a3e1;
+}
+

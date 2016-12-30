@@ -33,6 +33,7 @@
 
     <!--Music Play CSS Files-->
     <link rel="stylesheet" type="text/css" href="musicplay/music.css" />
+    <link href="../css/mystylestation.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -80,18 +81,60 @@
         </nav>
 
         <!--owlCarousel-->
-        
+
     </header>
 
-    <!--Content -->
-    <div id="container">
-        <div id="player" class="player">
 
-            <div id="songName" class="songName">{{song.title}}</div>
-            <div id="singer" class="singer">{{song.author}}</div>
-            
-            <audio id="audio" style="width:600px;" autoplay="autoplay" controls="controls"></audio>
-            <div id="out" class='out'></div>
+
+
+
+    <!--Content -->
+    <div id="container" class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="player" class="player">
+                    <div id="songName" class="songName">{{song.title}}</div>
+                    <div id="singer" class="singer">{{song.author}}</div>
+
+                    <audio id="audio" style="width:700px;" autoplay="autoplay" controls="controls"></audio>
+                    <div class="panel lyric">
+                        <div class="lyric_wrap">
+                            <ul id="lyric">
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="widget widget-table">
+                    <div class="widget-header">
+                        <i class="icon-th-list"></i>
+                        <h3>留言列表</h3>
+                    </div> <!-- /widget-header -->
+                    <div class="site-nav">
+                        <span class="glyphicon glyphicon-tags" onclick="message()"></span>
+                    </div>
+                    <div class="widget-content" id="messagelist">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style='width:5%; text-align: left'>留言者</th>
+                                    <th style='width:25%; text-align: left'>内容</th>
+                                    <th style='width:10%; text-align: left'>留言时间</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="mess in messList">
+                                    <td>{{mess.Uip}}</td>
+                                    <td>{{mess.Messageinfo}}</td>
+                                    <td>{{mess.Creatdate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> <!-- /widget-content -->
+                </div>
+            </div>
         </div>
     </div>
     <footer>
@@ -104,5 +147,6 @@
 
     <!--Music Play JavaScript Files-->
     <script type="text/javascript" src="musicplay/music.js"></script>
+    <script src="../../js/bootbox.min.js"></script>
 </body>
 </html>
