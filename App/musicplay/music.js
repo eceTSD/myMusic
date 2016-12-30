@@ -44,6 +44,9 @@ function search(searchvalue) {
                 renderLyric(lrcText);
             });
             //loadLrc(musV.song.lrc, $("#out"), $('audio')[0]);//歌词链接
+
+            //var ad = document.getElementById("audio");
+            //ad.ontimeupdate = "updateLyric()";
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);
@@ -56,18 +59,18 @@ var $player = $("#audio"),
     player = $player.get(0),
     lyric_wrap = $(".lyric_wrap"),
     lyric = lyric_wrap.find("#lyric");
-
+var parsed = '';
 function renderLyric(lrcText) {
     lyric.html("");
     var lyricLineHeight = 27,
         offset = lyric_wrap.offset().height * 0.4;
     lrcText.fetch(function (data) {
-        lrcText.parsed = {};
+        parsed = {};
         var i = 0;
         for (var k in data) {
             var txt = data[k];
             if (!txt) txt = "&nbsp;";
-            lrcText.parsed[k] = {
+            parsed[k] = {
                 index: i++,
                 text: txt,
                 top: i * lyricLineHeight - offset
@@ -75,9 +78,34 @@ function renderLyric(lrcText) {
             var li = $("<li>" + txt + "</li>");
             lyric.append(li);
         }
+        //$player[0].addEventListener('playing', updateLyric(lrcText.parsed));
+        //ad.bind("playing", updateLyric(lrcText.parsed));
     }, function () {
         lyric.html("<li style='text-align: center'>歌词加载失败</li>");
     });
+}
+
+
+
+var text_temp;
+function updateLyric() {
+    var data = parsed;
+    if (!data) return;
+    var currentTime = Math.round(player.currentTime);
+    var lrc = data[currentTime];
+    if (!lrc) return;
+    var text = lrc.text;
+    if (text != text_temp) {
+        locationLrc(lrc);
+        text_temp = text;
+    }
+    function locationLrc(lrc) {
+        lyric_wrap.find(".on").removeClass("on");
+        var li = lyric_wrap.find("li:nth-child(" + (lrc.index + 1) + ")");
+        li.addClass("on");
+        var top = Math.min(0, -lrc.top);
+        lyric.css({ "margin-top": top });
+    }
 }
 
 function Lyrics(url) {

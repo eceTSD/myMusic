@@ -96,7 +96,7 @@
                     <div id="songName" class="songName">{{song.title}}</div>
                     <div id="singer" class="singer">{{song.author}}</div>
 
-                    <audio id="audio" style="width:700px;" autoplay="autoplay" controls="controls"></audio>
+                    <audio id="audio" style="width:700px;" autoplay="autoplay" controls="controls" ontimeupdate = "updateLyric()"></audio>
                     <div class="panel lyric">
                         <div class="lyric_wrap">
                             <ul id="lyric">
