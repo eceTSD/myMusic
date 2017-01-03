@@ -4,12 +4,10 @@
 
     void Application_Start(object sender, EventArgs e)
     {
-
-
         // 在应用程序启动时运行的代码
         ////定义定时器  
         ////在应用程序启动时运行的代码 这里设置34个小时间隔 43200000 12小时  60000 一分钟
-        System.Timers.Timer myTimer = new System.Timers.Timer(60000);
+        System.Timers.Timer myTimer = new System.Timers.Timer(1800000);
         //修改时间间隔
         //关联事件
         myTimer.Elapsed += new System.Timers.ElapsedEventHandler(myTimer_Elapsed);

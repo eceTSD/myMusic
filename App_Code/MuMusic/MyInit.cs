@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Web;
 
 /// <summary>
@@ -10,7 +11,16 @@ public class MyInit
 {
    public static void initHome()
     {
-        List<Song> songlist = MusicApis.SearchApi("陈奕迅", "1", "0", "20").Cast<Song>().ToList();
+        string sql = "select searchcode from searchcode";
+        foreach (DataRow dr in MyDB.Query(sql).Tables[0].Rows)
+        {
+            onetime(dr["searchcode"].ToString());
+        }
+    }
+
+    private static void onetime(string s)
+    {
+        List<Song> songlist = MusicApis.SearchApi(s, "1", "0", "20").Cast<Song>().ToList();
         List<onesongnew> songl = new List<onesongnew>();
         foreach (Song song in songlist)
         {
@@ -30,6 +40,8 @@ public class MyInit
 
         }
         HashOperator hashOperatoer = new HashOperator();
-        hashOperatoer.Set<string>("0001", "home", Utils.ObjectToJson(songl));
+        hashOperatoer.Set<string>("0001", s, Utils.ObjectToJson(songl));
+        hashOperatoer.Dispose();
+
     }
 }

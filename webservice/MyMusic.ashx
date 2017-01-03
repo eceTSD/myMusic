@@ -12,14 +12,20 @@ public class MyMusic : IHttpHandler {
         string s = context.Request.Params["s"] == null ? "" : context.Request.Params["s"].ToString();
         string type = context.Request.Params["type"] == null ? "1" : context.Request.Params["type"].ToString();
 
-
         if (s == "") { s = "陈奕迅"; }
+
+
+        if(MyDB.Query("select * from searchcode where searchcode = \"" + s + "\"").Tables[0].Rows.Count == 0)
+        {
+            MyDB.ExecuteSql("insert into searchcode (username,searchcode) values (\"匿名者\",\""+s+"\")");
+        }
+
         if(type == "1") {
             HashOperator hashOperatoer = new HashOperator();
             context.Response.ContentType = "text/json";
-            if(s == "陈奕迅" && hashOperatoer.Exist<string>("0001", "home"))
+            if(hashOperatoer.Exist<string>("0001", s))
             {
-                context.Response.Write(hashOperatoer.Get<string>("0001", "home"));
+                context.Response.Write(hashOperatoer.Get<string>("0001",s));
             }else {
                 List<Song> songlist = MusicApis.SearchApi(s, type, "0", "20").Cast<Song>().ToList();
                 List<onesongnew> songl = new List<onesongnew>();
@@ -37,7 +43,9 @@ public class MyMusic : IHttpHandler {
                         onesong.lrc = MusicApis.LyricInfo(song.Id.ToString()).Lyr;
                         songl.Add(onesong);}
 
-                }             
+                }
+                hashOperatoer.Set<string>("0001", s, Utils.ObjectToJson(songl));
+                hashOperatoer.Dispose();
                 context.Response.Write(Utils.ObjectToJson(songl));}}
 
         else if(type == "10")
