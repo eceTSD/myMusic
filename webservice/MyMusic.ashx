@@ -19,7 +19,8 @@ public class MyMusic : IHttpHandler {
             List<onesongnew> songl = new List<onesongnew>();
             foreach (Song song in songlist)
             {
-                onesongnew onesong = new onesongnew();
+                if (Utils.IsURLOK(song.Mp3Url)) {
+                 onesongnew onesong = new onesongnew();
                 onesong.id = song.Id;
                 onesong.albumid = song.Album.Id;
                 onesong.album = song.Album.Name.Length>10?song.Album.Name.Substring(0,10)+"...":song.Album.Name;
@@ -28,7 +29,8 @@ public class MyMusic : IHttpHandler {
                 onesong.url = song.Mp3Url;
                 onesong.pic = song.Album.PictureUrl;
                 onesong.lrc = MusicApis.LyricInfo(song.Id.ToString()).Lyr;
-                songl.Add(onesong);
+                songl.Add(onesong);}
+
             }
 
             context.Response.Write(Utils.ObjectToJson(songl));}
@@ -44,7 +46,7 @@ public class MyMusic : IHttpHandler {
         else if(type == "1000")
         {
             List<AppList> AppList = MusicApis.SearchApi(s, type, "0", "15").Cast<AppList>().ToList();
-                 foreach(AppList applist in AppList)
+            foreach(AppList applist in AppList)
             {
                 applist.Name = applist.Name.Length > 10 ? applist.Name.Substring(0, 10) + "..." : applist.Name;
             }

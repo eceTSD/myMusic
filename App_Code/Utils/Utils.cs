@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Web;
 
@@ -511,5 +512,30 @@ public class Utils
         return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
     }
 
+    #endregion
+
+    #region 网络连接
+
+    /// <summary>
+    /// 判断网络连接是否正常
+    /// </summary>
+    /// <param name="url"></param>
+    /// <returns></returns>
+    public static bool IsURLOK(string url)
+    {
+        try
+        {           
+            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;         
+            request.Method = "HEAD";          
+            HttpWebResponse response = request.GetResponse() as HttpWebResponse;           
+            response.Close();
+            return (response.StatusCode == HttpStatusCode.OK);
+        }
+        catch
+        {          
+            return false;
+        }
+    }
+    
     #endregion
 }
