@@ -11,6 +11,8 @@ public class MyInit
 {
    public static void initHome()
     {
+        HashOperator hashOperatoer = new HashOperator();
+        hashOperatoer.Remove("0001");
         string sql = "select searchcode from searchcode";
         foreach (DataRow dr in MyDB.Query(sql).Tables[0].Rows)
         {
@@ -20,7 +22,7 @@ public class MyInit
 
     private static void onetime(string s)
     {
-        List<Song> songlist = MusicApis.SearchApi(s, "1", "0", "20").Cast<Song>().ToList();
+        List<Song> songlist = MusicApis.SearchApi(s, "1", "0", "50").Cast<Song>().ToList();
         List<onesongnew> songl = new List<onesongnew>();
         foreach (Song song in songlist)
         {

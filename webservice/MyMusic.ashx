@@ -22,12 +22,13 @@ public class MyMusic : IHttpHandler {
 
         if(type == "1") {
             HashOperator hashOperatoer = new HashOperator();
+           
             context.Response.ContentType = "text/json";
             if(hashOperatoer.Exist<string>("0001", s))
             {
                 context.Response.Write(hashOperatoer.Get<string>("0001",s));
             }else {
-                List<Song> songlist = MusicApis.SearchApi(s, type, "0", "20").Cast<Song>().ToList();
+                List<Song> songlist = MusicApis.SearchApi(s, type, "0", "50").Cast<Song>().ToList();
                 List<onesongnew> songl = new List<onesongnew>();
                 foreach (Song song in songlist)
                 {
