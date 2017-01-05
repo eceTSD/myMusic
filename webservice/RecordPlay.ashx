@@ -2,14 +2,16 @@
 
 using System;
 using System.Web;
+using System.Collections;
+using System.Linq;
 
 public class RecordPlay : IHttpHandler
 {
     public void ProcessRequest(HttpContext context)
     {
-        string songid = context.Request.Params["sid"] == null ? "" : context.Request.Params["sid"].ToString();
+        string sidList = context.Request.Params["sidList"] == null ? "" : context.Request.Params["sidList"];
 
-        if (songid == "")
+        if (sidList == "")
         {
             return;
         }
@@ -17,8 +19,17 @@ public class RecordPlay : IHttpHandler
         {
             string realIP = "匿名者";
             string datatime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string sql = "insert into playingrecords (SONGID, UIP, PLAYDATE) values(\"" + songid + "\",\"" + realIP + "\",\"" + datatime + "\")";
-            MyDB.ExecuteSql(sql);
+
+            ArrayList sal = new ArrayList();
+            string[] sidListA = sidList.Split(',');
+            sidListA = sidListA.Where(v => !string.IsNullOrEmpty(v)).ToArray();
+            foreach (var sid in sidListA)
+            {
+                string sql = "insert into playingrecords (SONGID, UIP, PLAYDATE) values(\"" + sid.ToString() + "\",\"" + realIP + "\",\"" + datatime + "\");";
+                sal.Add(sql);
+            }
+
+            MyDB.ExecuteSqlTran(sal);
         }
     }
 
