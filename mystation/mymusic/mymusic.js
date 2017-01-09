@@ -20,9 +20,16 @@ var goodsVue = new Vue({
     methods: {
         playonesong: function (song) {
             playsong(song)
+            recordPlay(song.id)
         },
         playall: function () {
             playsong(goodsVue.songList)
+
+            var sgIdLis = '';
+            $.each(goodsVue.songList, function (i, item) {
+                sgIdLis += item.id + ',';
+            })
+            recordPlay(sgIdLis)
         },
         toalbum: function (song) {
             getalbumsong(song.albumid)
@@ -234,6 +241,17 @@ function message() {
                 })
             }
 
+        }
+    });
+}
+
+function recordPlay(sgIdLis) {
+    $.ajax({
+        type: "post",
+        url: "../../webservice/RecordPlay.ashx",
+        dataType: "json",
+        data: {
+            sidList: sgIdLis
         }
     });
 }

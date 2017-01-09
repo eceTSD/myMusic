@@ -5,6 +5,7 @@ $(document).ready(function () {
     songid = searchvalue;
 
     search(songid);
+    recordPlay(songid);
     messageSearch(songid);
 })
 
@@ -50,6 +51,17 @@ function search(searchvalue) {
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);
+        }
+    });
+}
+
+function recordPlay(songid) {
+    $.ajax({
+        type: "post",
+        url: "../../webservice/RecordPlay.ashx",
+        dataType: "json",
+        data: {
+            sid: songid
         }
     });
 }
