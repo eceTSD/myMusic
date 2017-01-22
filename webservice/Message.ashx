@@ -15,7 +15,7 @@ public class Message : IHttpHandler {
         else
         {
             
-            string realIP = "匿名者";
+            string realIP = context.Request.UserHostName.ToString();
             string guid = System.Guid.NewGuid().ToString("N").ToUpper();
             string datatime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string sql = "insert into message (ID,UIP,CREATDATE,UMESSAGE) values(\""+guid+"\",\""+realIP+"\",\""+datatime+"\",\""+message+"\")";
